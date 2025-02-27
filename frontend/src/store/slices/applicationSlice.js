@@ -41,7 +41,7 @@ const applicationSlice = createSlice({
 export const fetchEmployerApplications = () => async (dispatch) => {
   dispatch(applicationSlice.actions.request());
   try {
-    const response = await axios.get(`http://localhost:5000/application/employer`, {
+    const response = await axios.get(`https://talent-park-production.up.railway.app/application/employer`, {
       withCredentials: true,
     });
     dispatch(applicationSlice.actions.success(response.data.applications));
@@ -53,7 +53,7 @@ export const fetchEmployerApplications = () => async (dispatch) => {
 export const fetchJobSeekerApplications = () => async (dispatch) => {
   dispatch(applicationSlice.actions.request());
   try {
-    const response = await axios.get(`http://localhost:5000/application/jobseeker`, {
+    const response = await axios.get(`https://talent-park-production.up.railway.app/application/jobseeker`, {
       withCredentials: true,
     });
     dispatch(applicationSlice.actions.success(response.data.applications));
@@ -66,7 +66,7 @@ export const postApplication = (data, jobId) => async (dispatch) => {
   dispatch(applicationSlice.actions.request());
   try {
     const response = await axios.post(
-      `http://localhost:5000/application/${jobId}/apply`,
+      `https://talent-park-production.up.railway.app/application/${jobId}/apply`,
       data,
       {
         withCredentials: true,
@@ -82,7 +82,7 @@ export const postApplication = (data, jobId) => async (dispatch) => {
 export const deleteApplication = (id) => async (dispatch) => {
   dispatch(applicationSlice.actions.request());
   try {
-    const response = await axios.delete(`http://localhost:5000/application/${id}`, {
+    const response = await axios.delete(`https://talent-park-production.up.railway.app/application/${id}`, {
       withCredentials: true,
     });
     dispatch(applicationSlice.actions.successMessage(response.data.message));

@@ -48,7 +48,7 @@ export const updateProfile = (data) => async (dispatch) => {
   dispatch(updateProfileSlice.actions.updateProfileRequest());
   try {
     const response = await axios.put(
-      "http://localhost:5000/user/update/profile",
+      "https://talent-park-production.up.railway.app/user/update/profile",
       data,
       {
         withCredentials: true,
@@ -68,7 +68,7 @@ export const updatePassword = (data) => async (dispatch) => {
   dispatch(updateProfileSlice.actions.updatePasswordRequest());
   try {
     const response = await axios.put(
-      "http://localhost:5000/user/update/password",
+      "https://talent-park-production.up.railway.app/user/update/password",
       data,
       {
         withCredentials: true,

@@ -63,7 +63,7 @@ export const fetchJobs = (city, niche, searchKeyword = "") => async (dispatch) =
     if (niche && niche !== "All") queryParams.append("niche", niche);
 
     const response = await axios.get(
-      `http://localhost:5000/job/?${queryParams.toString()}`,
+      `https://talent-park-production.up.railway.app/job/?${queryParams.toString()}`,
       { withCredentials: true }
     );
     dispatch(jobSlice.actions.success(response.data.jobs));
@@ -77,7 +77,7 @@ export const fetchSingleJob = (jobId) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
     const response = await axios.get(
-      `http://localhost:5000/job/${jobId}`,
+      `https://talent-park-production.up.railway.app/job/${jobId}`,
       { withCredentials: true }
     );
     dispatch(jobSlice.actions.successSingle(response.data.job));
@@ -91,7 +91,7 @@ export const postJob = (data) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
     const response = await axios.post(
-      `http://localhost:5000/job/`,
+      `https://talent-park-production.up.railway.app/job/`,
       data,
       { withCredentials: true, headers: { "Content-Type": "application/json" } }
     );
@@ -106,7 +106,7 @@ export const getMyJobs = () => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
     const response = await axios.get(
-      `http://localhost:5000/job/my-jobs`,
+      `https://talent-park-production.up.railway.app/job/my-jobs`,
       { withCredentials: true }
     );
     dispatch(jobSlice.actions.successMyJobs(response.data.myJobs));
@@ -120,7 +120,7 @@ export const deleteJob = (id) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
     const response = await axios.delete(
-      `http://localhost:5000/job/${id}`,
+      `https://talent-park-production.up.railway.app/job/${id}`,
       { withCredentials: true }
     );
     dispatch(jobSlice.actions.successDelete(response.data.message));

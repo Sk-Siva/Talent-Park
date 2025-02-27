@@ -94,7 +94,7 @@ export const register = (data) => async (dispatch) => {
   dispatch(userSlice.actions.registerRequest());
   try {
     const response = await axios.post(
-      "http://localhost:5000/user/register",
+      "https://talent-park-production.up.railway.app/user/register",
       data,
       {
         withCredentials: true,
@@ -112,7 +112,7 @@ export const login = (data) => async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
     const response = await axios.post(
-      "http://localhost:5000/user/login",
+      "https://talent-park-production.up.railway.app/user/login",
       data,
       {
         withCredentials: true,
@@ -130,7 +130,7 @@ export const getUser = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchUserRequest());
   try {
     const response = await axios.get(
-      "http://localhost:5000/user/getuser",
+      "https://talent-park-production.up.railway.app/user/getuser",
       {
         withCredentials: true,
       }
@@ -144,7 +144,7 @@ export const getUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "http://localhost:5000/user/logout",
+      "https://talent-park-production.up.railway.app/user/logout",
       {
         withCredentials: true,
       }
